@@ -3,7 +3,7 @@ package categoriesrepositories
 import (
 	"database/sql"
 	"net/http"
-	models "technopartnertest_go/db-generator/gen"
+	"technopartnertest_go/models"
 	"technopartnertest_go/repositories/categoriesRepositories/dbContext"
 
 	"github.com/gin-gonic/gin"
@@ -22,7 +22,7 @@ func NewCategoriesRepo(dbHandler *sql.DB) *CategoriesRepo {
 	}
 }
 
-func (ct CategoriesRepo) GetCategories(ctx *gin.Context, id int16) (*models.Category, *models) {
+func (ct CategoriesRepo) GetCategories(ctx *gin.Context, id int16) (*models.Category, *models.ResponseError) {
 	market := dbContext.New(ct.dbHandler)
 	cateDetail, err := market.GetCategories(ctx, id)
 

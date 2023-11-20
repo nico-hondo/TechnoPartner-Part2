@@ -2,7 +2,7 @@ package dbContext
 
 import (
 	"context"
-	models "technopartnertest_go/db-generator/gen"
+	models "technopartnertest_go/models"
 )
 
 const getCategories = `-- name: GetCategories :one
